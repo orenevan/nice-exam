@@ -10,8 +10,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'cd terraform/webserver '
-                sh 'echo terraform init'
-                sh 'echo terraform plan '
+                sh 'terraform init'
+                sh 'terraform plan '
                 sh 'echo terraform apply tfplan'
             }
         }
