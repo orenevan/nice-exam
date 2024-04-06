@@ -12,9 +12,9 @@ pipeline {
                 sh 'cd terraform/webserver '
                 sh 'cd terraform/webserver ; terraform init'
                 sh 'cd terraform/webserver ; terraform plan '
-                sh 'cd terraform/webserver ; terraform apply --auto-force'
+                sh 'cd terraform/webserver ; terraform apply --auto-approve'
                 sh 'sleep 60'
-                sh 'cd terraform/webserver ; terraform destory --auto-force'
+                sh 'cd terraform/webserver ; terraform destory --auto-approve'
 
             }
         }
