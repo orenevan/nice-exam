@@ -1,4 +1,10 @@
 ### Environment-specific options
-project_env    = "development"
-aws_region     = "us-east-1"
-project_name = "nice"
+project_env     = "development"
+aws_region      = "us-east-1"
+project_name    = "nice"
+ec2_instance_name = "webserver"   
+vpc_cidr_block  = "12.0.0.0/16" 
+public_subnet_cidr_block = "12.0.1.0/24"
+ssh_key_name    =   "id_rsa.pub" 
+instance_type   =   "t2.micro"
+ssh_public_key_path = "~/.ssh/id_rsa.pub"
