@@ -76,13 +76,6 @@ resource "aws_security_group" "web" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   # Outbound rule allowing all traffic
   egress {
     from_port   = 0
@@ -135,12 +128,6 @@ data "aws_ami" "amazon-linux-2" {
 
 
 
-resource "aws_key_pair" "key" {
-  key_name   = var.ssh_key_name
-  public_key = file(var.ssh_public_key_path)
-}
-
-
 # Define EC2 instance
 resource "aws_instance" "web" {
   ami           = data.aws_ami.amazon-linux-2.id 
@@ -148,7 +135,6 @@ resource "aws_instance" "web" {
   subnet_id     = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.web.id]
  
-  key_name = aws_key_pair.key.key_name
   associate_public_ip_address = true
 
   tags = {
@@ -169,3 +155,12 @@ resource "aws_instance" "web" {
 }
 
 
+
+output "web_server_info" {
+  value = {
+    instance_id       = aws_instance.jenkins.id
+    instance_type     = aws_instance.jenkins.instance_type
+    public_ip         = aws_instance.jenkins.public_ip
+    url               = "http://${aws_instance.jenkins.public_dns}"
+  }
+}
