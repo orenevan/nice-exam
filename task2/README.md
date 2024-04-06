@@ -26,9 +26,8 @@ http://ec2-3-235-20-202.compute-1.amazonaws.com/manage/
 http://ec2-3-235-20-202.compute-1.amazonaws.com/manage/pluginManager/available
 
 
-enter
-https://github.com/orenevan/nice-exam
-script path should be terraform/webserver/Jenkinsfile
+git repo: https://github.com/orenevan/nice-exam
+script path:  jenkins_pipline/Jenkinsfile
 
 
 
