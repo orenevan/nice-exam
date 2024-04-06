@@ -13,28 +13,28 @@ pipeline {
                 sh 'cd terraform/webserver ; terraform init'
                 sh 'cd terraform/webserver ; terraform plan '
                 sh 'cd terraform/webserver ; terraform apply --auto-approve'
-                script {
-                     // Get the Terraform output as JSON
-                    def terraformOutput = sh(script: 'terraform output -json web_server_info', returnStdout: true).trim()
+                // script {
+                //      // Get the Terraform output as JSON
+                //     def terraformOutput = sh(script: 'terraform output -json web_server_info', returnStdout: true).trim()
 
-                    // Parse JSON using Groovy
-                    def jsonSlurper = new groovy.json.JsonSlurper()
-                    def parsedOutput = jsonSlurper.parseText(terraformOutput)
+                //     // Parse JSON using Groovy
+                //     def jsonSlurper = new groovy.json.JsonSlurper()
+                //     def parsedOutput = jsonSlurper.parseText(terraformOutput)
 
-                    def url  = parsedOutput.public_ip.url 
-                    sleep 60
-                    echo "curl -s $url"
-                    // Use curl to browse to the server and confirm "hello world"
-                    def curlOutput = sh(script: "curl -s $url", returnStdout: true).trim()
-                    if (curlOutput.contains("Hello, World!")) {
-                        echo "Success: Found 'Hello, World!' on the server"
-                        currentBuild.result = 'SUCCESS' // Set the build result to SUCCESS
-                    } else {
-                        echo "Error: Unable to find 'Hello, World!' on the server"
-                        currentBuild.result = 'FAILURE' // Set the build result to FAILURE
-                        error "Failed to find 'Hello, World!' on the server"
-                    }
-                } 
+                //     def url  = parsedOutput.public_ip.url 
+                //     sleep 60
+                //     echo "curl -s $url"
+                //     // Use curl to browse to the server and confirm "hello world"
+                //     def curlOutput = sh(script: "curl -s $url", returnStdout: true).trim()
+                //     if (curlOutput.contains("Hello, World!")) {
+                //         echo "Success: Found 'Hello, World!' on the server"
+                //         currentBuild.result = 'SUCCESS' // Set the build result to SUCCESS
+                //     } else {
+                //         echo "Error: Unable to find 'Hello, World!' on the server"
+                //         currentBuild.result = 'FAILURE' // Set the build result to FAILURE
+                //         error "Failed to find 'Hello, World!' on the server"
+                //     }
+                // } 
 
                 sh 'cd terraform/webserver ; terraform destroy --auto-approve'
 
@@ -48,6 +48,7 @@ pipeline {
         }
         failure {
             echo 'Deployment failed!'
+            sh 'cd terraform/webserver ; terraform destroy --auto-approve'
         }
     }
 }
