@@ -18,8 +18,10 @@ Provide documentation on the CI/CD pipeline setup.
 1. jenkins is installed using the terraform under terraform/jenkins 
 2. after installation manually define a pipeline - see screen shots below 
 
+the ssh_key define is under ssh_public_key_path = "~/.ssh/id_rsa.pub"
 to get credntials ssh to machine sudo cat /home/bitnami/bitnami_credentials"
 http://jenkins_server/manage/
+
 
 
 http://jenkins_dns/manage/pluginManager/available
