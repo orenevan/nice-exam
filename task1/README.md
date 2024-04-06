@@ -31,4 +31,11 @@ Step-by-step instructions to install and configure the project.
     3. terraform plan               `checking out that plan looks ok`
     4. terraform apply  
     5. terraform destroy            `for tearing down` 
-        
+
+
+drwxr-xr-x@ 5 orenevan  staff   160 Apr  6 19:36 ..
+-rw-r--r--@ 1 orenevan  staff   171 Apr  6 19:36 common.tf
+-rw-r--r--@ 1 orenevan  staff  3796 Apr  6 19:36 main.tf
+-rw-r--r--@ 1 orenevan  staff   335 Apr  6 19:37 terraform.tfvars
+-rw-r--r--@ 1 orenevan  staff   421 Apr  6 19:36 variables.tf
+-rw-r--r--@ 1 orenevan  staff   159 Apr  6 19:36 versions.tf

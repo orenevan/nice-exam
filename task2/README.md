@@ -14,3 +14,5 @@ Demonstrate a successful automated deployment.
 
 ### Deliverables:
 Provide documentation on the CI/CD pipeline setup.
+
+to get credntials ssh to machine sudo cat /home/bitnami/bitnami_credentials"
