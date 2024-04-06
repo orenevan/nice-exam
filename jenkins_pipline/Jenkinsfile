@@ -11,8 +11,11 @@ pipeline {
             steps {
                 sh 'cd terraform/webserver '
                 sh 'cd terraform/webserver ; terraform init'
-                sh 'terraform plan '
-                sh 'echo terraform apply tfplan'
+                sh 'cd terraform/webserver ; terraform plan '
+                sh 'cd terraform/webserver ; terraform apply --auto-force'
+                sh 'sleep 60'
+                sh 'cd terraform/webserver ; terraform destory --auto-force'
+
             }
         }
     }
