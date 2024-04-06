@@ -19,12 +19,8 @@ Provide documentation on the CI/CD pipeline setup.
 2. after installation manually define a pipeline - see screen shots below 
 
 to get credntials ssh to machine sudo cat /home/bitnami/bitnami_credentials"
-http://ec2-3-235-20-202.compute-1.amazonaws.com/manage/
+http://jenkins_server/manage/
 
-#curl http://localhost/jnlpJars/jenkins-cli.jar  -o jenkins-cli.jar 
-# seacrh for Pipeline: Declarative , install and restart Jenkins
-# the same for Git 
-# safeRestart 
 
 http://jenkins_dns/manage/pluginManager/available
 
