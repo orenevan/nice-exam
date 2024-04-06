@@ -158,9 +158,9 @@ resource "aws_instance" "web" {
 
 output "web_server_info" {
   value = {
-    instance_id       = aws_instance.jenkins.id
-    instance_type     = aws_instance.jenkins.instance_type
-    public_ip         = aws_instance.jenkins.public_ip
-    url               = "http://${aws_instance.jenkins.public_dns}"
+    instance_id       = aws_instance.web.id
+    instance_type     = aws_instance.web.instance_type
+    public_ip         = aws_instance.web.public_ip
+    url               = "http://${aws_instance.web.public_dns}"
   }
 }
