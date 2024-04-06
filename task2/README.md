@@ -29,5 +29,6 @@ http://ec2-3-235-20-202.compute-1.amazonaws.com/manage/pluginManager/available
 git repo: https://github.com/orenevan/nice-exam
 script path:  jenkins_pipline/Jenkinsfile
 
+[jenlins](screenshots/pipeline_configuration.png)
 
 
