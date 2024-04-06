@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/orenevan/nice-exam/'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo cd terraform '
+                sh 'echo terraform init'
+                sh 'echo terraform plan -out=tfplan'
+                sh 'echo terraform apply tfplan'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Deployment failed!'
+        }
+    }
+}
+
